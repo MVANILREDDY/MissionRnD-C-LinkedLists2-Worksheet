@@ -22,14 +22,14 @@ struct node * merge2LinkedLists(struct node *head1, struct node *head2) {
 	struct node* orderlist = NULL;
 	if (head1 == NULL&&head2 == NULL)
 		return NULL;
-	else if (head1 == NULL)//checkiing NULL cases for two_lists.
+	else if (head1 == NULL)//checking NULL cases for two_lists.
 		return(head2);
 	else if (head2 == NULL)
 		return(head1);
 	if (head1->num <= head2->num)
 	{
 		orderlist = head1;
-		orderlist->next = merge2LinkedLists(head1->next, head2);
+		orderlist->next = merge2LinkedLists(head1->next, head2);//using recursive approach for sorting.
 	}
 	else
 	{

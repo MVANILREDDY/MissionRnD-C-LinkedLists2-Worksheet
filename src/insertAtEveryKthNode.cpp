@@ -19,6 +19,46 @@ struct node {
 	struct node *next;
 };
 
-struct node * insertAtEveryKthNode(struct node *head, int K) {
-	return NULL;
+struct node * insertAtEveryKthNode(struct node *head, int K) 
+{
+	struct node*insert, *current, *precur;
+	int count = 0;
+
+	if (K>0 && head != NULL)
+	{
+		current = head;
+		precur = head;
+		while (current != NULL)
+		{
+
+			if (count == K)//count is used as reference for Kth node.
+			{
+				insert = (struct node*)malloc(sizeof(struct node));
+				insert->num = K;
+				count = 0;
+				precur->next = insert;//precur and current nodes are used asreference for current and previous nodes.
+				insert->next = current;
+			}
+			else
+			{
+				precur = current;
+				current = current->next;
+				count++;
+			}
+		}
+		if (count == K)  //after traversing entire list,if count is K,then inserting at end of the list.
+		{
+			insert = (struct node*)malloc(sizeof(struct node));
+			insert->num = K;
+			precur->next = insert;
+			insert->next = NULL;
+		}
+		return head;
+
+	}
+	else
+	{
+		return NULL;
+	}
 }
+

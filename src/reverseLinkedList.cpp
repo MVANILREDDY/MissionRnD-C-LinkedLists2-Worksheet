@@ -18,6 +18,29 @@ struct node {
 	struct node *next;
 };
 
-struct node * reverseLinkedList(struct node *head) {
-	return NULL;
+struct node * reverseLinkedList(struct node *head) 
+{
+	if (head == NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		struct node *reverse = NULL;//reverse is used for pointing end of given linkedlist.
+		struct  node *current, *temp;
+		current = head;
+		while (current != NULL)
+		{
+			temp = current->next;
+			current->next = reverse;
+			reverse = current;
+			current = temp;
+
+		}
+		return reverse;
+	}
 }
+
+
+
+

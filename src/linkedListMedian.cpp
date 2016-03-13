@@ -39,13 +39,13 @@ int linkedListMedian(struct node *head)
 			  highlist = highlist->next;
 			if (highlist != NULL)
 			{
-				middle++;//used to check middle element  in list.
+				middle++;//used to find middle element  in list.
 				lowlist = lowlist->next;
 				highlist = highlist->next;
 			}
 
 		}
-		if (middle % 2 != 0&&middle!=1 || middle == 0)
+		if (middle % 2 != 0&&middle!=1 || middle == 0)//condition for oddno of nodes or single node 
 			return lowlist->num;
 		else
 		{
